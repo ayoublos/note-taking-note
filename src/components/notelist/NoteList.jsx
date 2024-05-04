@@ -1,9 +1,8 @@
 import Note from "../note/Note"
 export default function NoteList({data}){
 
-    console.log(data)
     return (
-        <div className="classList">
+        <div className="noteList">
             {data.map(note => <Note key={note.id} note={note}/>)}
         </div>
     )

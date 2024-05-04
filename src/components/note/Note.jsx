@@ -1,3 +1,4 @@
+import "./Note.scss"
 export default function Note({note}){
 
     return (
