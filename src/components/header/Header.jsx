@@ -3,7 +3,7 @@ import './Header.scss';
 export default function Header() {
   return (
     <header className="Header">
-      <div>MyNotes App</div>
+      <div className='logo'>MyNotes App</div>
       <nav>
         <ul>
           <li>My Notes</li>

@@ -11,4 +11,11 @@
     li {
         margin-left: 30px;
     }
+
+    .logo {
+       background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+       background-clip: text;
+       -webkit-text-fill-color: transparent;
+       font-weight: 700;
+    }
 }
