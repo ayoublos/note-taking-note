@@ -1,7 +1,7 @@
-// import { useState } from "react";
 import Header from "./components/header/Header.jsx";
 import NoteList from "./components/notelist/NoteList.jsx";
 import Note from "./components/note/Note.jsx";
+import EditNote from "./components/editnote/EditNote.jsx";
 import AboutUs from "./components/about us/AboutUs.jsx";
 import PageNotFound from "./components/pagenotfound/PageNotFound.jsx";
 import NewNoteForm from "./components/newnoteform/NewNoteForm.jsx";
@@ -11,7 +11,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import data from './data/data.json'
 
 function App() {
-  console.log(data)
 
   return (
     <main>
@@ -20,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<NoteList data={data} />} />
           <Route path="/notes" element={<NoteList data={data} />} />
-          <Route path="/notes/:id/edit" element={<Note />} />
+          <Route path="/notes/:id/edit" element={<EditNote data={data}/>} />
           <Route path="/notes/new" element={<NewNoteForm />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/*" element={<PageNotFound />} />
