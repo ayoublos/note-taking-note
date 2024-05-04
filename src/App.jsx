@@ -14,10 +14,8 @@ function App() {
   console.log(data)
 
   return (
-    
-    <main>
 
-      <p>Hello world</p>
+    <main>
       <Router>
         <Header />
         <Routes>
