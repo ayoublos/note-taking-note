@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import Header from "./components/header/Header.jsx";
 import NoteList from "./components/notelist/NoteList.jsx";
 import Note from "./components/note/Note.jsx";
@@ -11,14 +11,29 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import data from './data/data.json'
 
 function App() {
-  console.log(data)
+const [notes, setNotes] = useState(data);
+const [filteredNotes, setFilteredNotes] = useState(data);
+const [searchTitle, setSearchTitle] = useState('');
+
+function handleTextChange(event) {
+  const title = event.target.value;
+  const result = title.length ? filterNotes(title, notes) : notes;
+  setSearchTitle(title);
+  setFilteredNotes(result);
+}
+
+function filterNotes(search, notes) {
+  return notes.filter((note) => {
+    return note.title.toLowerCase().match(search.toLowerCase());
+  });
+}
 
   return (
     <main>
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<NoteList data={data} />} />
+          <Route path="/" element={<NoteList handleTextChange={handleTextChange} filteredNotes={filteredNotes} />} />
           <Route path="/notes" element={<NoteList data={data} />} />
           <Route path="/notes/:id/edit" element={<Note />} />
           <Route path="/notes/new" element={<NewNoteForm />} />
