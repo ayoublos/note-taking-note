@@ -1,0 +1,10 @@
+.noteList {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+    ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    }
+}
