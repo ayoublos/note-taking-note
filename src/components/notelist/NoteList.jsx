@@ -1,4 +1,5 @@
 import Note from "../note/Note"
+import "./NoteList.scss"
 export default function NoteList({data}){
 
     return (
