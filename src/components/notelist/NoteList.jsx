@@ -1,26 +1,7 @@
 import './NoteList.scss';
 import Note from '../note/Note';
 import { useState } from 'react';
-export default function NoteList({ data }) {
-  const [notes, setNotes] = useState(data);
-  const [filteredNotes, setFilteredNotes] = useState(data);
-  const [searchTitle, setSearchTitle] = useState('');
-
-  function handleTextChange(event) {
-    const title = event.target.value;
-    const result = title.length
-      ? filterNotes(title, notes)
-      : notes;
-    setSearchTitle(title);
-    setFilteredNotes(result);
-  }
-
-
-  function filterNotes(search, notes) {
-    return notes.filter((note) => {
-      return note.title.toLowerCase().match(search.toLowerCase());
-    });
-  }
+export default function NoteList({ handleTextChange, filteredNotes }) {
 
   return (
     <>
