@@ -1,0 +1,12 @@
+.Footer {
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a:any-link {
+    text-decoration: none;
+    color: #000;
+  }
+}
