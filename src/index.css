@@ -88,10 +88,15 @@ main {
   box-sizing: border-box;
   font-size: 100%;
   font: inherit;
+  text-decoration: none;
   font-family: 'Poppins', sans-serif;
 }
 
 body {
   padding: 30px;
   scroll-behavior: smooth;
+}
+
+a:any-link {
+  color: inherit;
 }
