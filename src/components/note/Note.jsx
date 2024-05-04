@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
 import "./Note.scss"
 export default function Note({note}){
 
     return (
         <div className="singleNote">
+            <Link to={`/notes/${note.id}/edit`}>
             <div className="singNote__container">
                 <h2>{note.title}</h2>
                 <h3>Entered On: {note.date}</h3>
@@ -10,6 +12,7 @@ export default function Note({note}){
                 <ul>{note.tags.map((tag,i) => <li key={i}>{tag}</li>)}</ul>
                 <p>{note.content}</p>
             </div>
+            </Link>
         </div>
     )
 }
