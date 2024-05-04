@@ -2,6 +2,7 @@
 import Header from "./components/header/Header.jsx";
 import NoteList from "./components/notelist/NoteList.jsx";
 import Note from "./components/note/Note.jsx";
+import AboutUs from "./components/about us/AboutUs.jsx";
 import PageNotFound from "./components/pagenotfound/PageNotFound.jsx";
 import NewNoteForm from "./components/newnoteform/NewNoteForm.jsx";
 import Footer from "./components/footer/Footer.jsx";
@@ -20,11 +21,11 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<NoteList />} />
-          <Route path="/notes" element={<NoteList />} />
+          <Route path="/" element={<NoteList data={data} />} />
+          <Route path="/notes" element={<NoteList data={data} />} />
           <Route path="/notes/:id/edit" element={<Note />} />
           <Route path="/notes/new" element={<NewNoteForm />} />
-          <Route path="/aboutus" element={<NoteList />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
         <Footer />
