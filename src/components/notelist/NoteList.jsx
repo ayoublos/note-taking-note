@@ -1,4 +1,4 @@
-impirt
+import Note from "../note/Note"
 export default function NoteList({data}){
 
     console.log(data)
