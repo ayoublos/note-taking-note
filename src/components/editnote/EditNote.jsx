@@ -22,9 +22,9 @@ export default function EditNote () {
     
     // const [updateNote, setUpdateNote] = useState(currentNote)
 
-    // function handleTextChange(e) {
-    //     setUpdateNote({...updateNote,[e.target.id]: e.target.value})
-    // }
+    function handleTextChange(e) {
+        setAllNotes({...allNotes,[e.target.id]: e.target.value})
+    }
 
     // function updateSingleNote(e) {
     //     e.preventDefault()
@@ -52,7 +52,7 @@ export default function EditNote () {
                     <label htmlFor="title">
                         <h1>
                             <input
-                            // onChange={handleTextChange}
+                            onChange={handleTextChange}
                             className="note__title" 
                             id="title" 
                             type="text" 
@@ -62,7 +62,7 @@ export default function EditNote () {
                     <label htmlFor="category">
                         <h3>
                             <input
-                            // onChange={handleTextChange}
+                            onChange={handleTextChange}
                             className="note__category" 
                             id="category" 
                             type="text" 
@@ -72,9 +72,9 @@ export default function EditNote () {
                     <label htmlFor="content">
                         <p>
                             <textarea
-                            // onChange={handleTextChange} 
+                            onChange={handleTextChange} 
                             className="note__body" 
-                            id="content" 
+                            id="body" 
                             style={{width: "100%"}}
                             rows="25" 
                             value={allNotes.body}>
