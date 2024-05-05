@@ -12,22 +12,6 @@ import data from './data/data.json'
 import EditNote from "./components/editnote/EditNote.jsx";
 
 function App() {
-const [notes, setNotes] = useState(data);
-const [filteredNotes, setFilteredNotes] = useState(notes);
-const [searchTitle, setSearchTitle] = useState('');
-
-function handleTextChange(event) {
-  const title = event.target.value;
-  const result = title.length ? filterNotes(title, notes) : notes;
-  setSearchTitle(title);
-  setFilteredNotes(result);
-}
-
-function filterNotes(search, notes) {
-  return notes.filter((note) => {
-    return note.title.toLowerCase().match(search.toLowerCase());
-  });
-}
 
   return (
     <main>
@@ -38,8 +22,6 @@ function filterNotes(search, notes) {
             path="/"
             element={
               <NoteList
-                handleTextChange={handleTextChange}
-                filteredNotes={filteredNotes}
               />
             }
           />
@@ -47,10 +29,6 @@ function filterNotes(search, notes) {
             path="/notes"
             element={
               <NoteList
-                handleTextChange={handleTextChange}
-                filteredNotes={filteredNotes}
-                setFilteredNotes={setFilteredNotes}
-                notes={notes}
               />
             }
           />
@@ -58,9 +36,6 @@ function filterNotes(search, notes) {
             path="/notes/:id/edit"
             element={
               <EditNote
-                notes={notes}
-                setNotes={setNotes}
-                setFilteredNotes={setFilteredNotes}
               />
             }
           />
