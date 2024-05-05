@@ -5,7 +5,7 @@ import "./EditNote.scss"
 export default function EditNote () {
 
     let navigate = useNavigate()
-    
+
     const { id } = useParams()
 
     const [currentNote, setCurrentNote] = useState({

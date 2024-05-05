@@ -3,29 +3,40 @@ import Note from '../note/Note';
 import { useEffect, useState } from 'react';
 
 export default function NoteList() {
-
   const [allNotes, setAllNotes] = useState([]);
+  const [filteredNotes, setFilteredNotes] = useState([]);
+  const [searchTitle, setSearchTitle] = useState('');
 
+  // Use useEffect to fetch data from a server and update allNotes
   useEffect(() => {
     fetch('https://6637c889288fedf69381538c.mockapi.io/api/v1/notes')
       .then((response) => response.json())
       .then((response) => {
         setAllNotes(response);
       });
-  }, [allNotes.length]);
-  
-//   function handleTextChange(event) {
-//     const title = event.target.value;
-//     const result = title.length ? filterNotes(title, notes) : notes;
-//     setSearchTitle(title);
-//     setFilteredNotes(result);
-//   }
-  
-//   function filterNotes(search, notes) {
-//     return notes.filter((note) => {
-//       return note.title.toLowerCase().match(search.toLowerCase());
-//     });
-//   }
+  }, []);
+
+  // Set filteredNotes to update as allNotes updates
+  useEffect(() => {
+    setFilteredNotes(allNotes);
+  }, [allNotes]);
+
+
+  // Handle text change on user search bar
+  function handleTextChange(event) {
+    const title = event.target.value;
+    setSearchTitle(title);
+    // If search is not empty, filter notes by title. Else, return all notes.
+    const result = title.length ? filterNotes(title, allNotes) : allNotes;
+    setFilteredNotes(result);
+  }
+
+  // Filter each note by title
+  function filterNotes(search, allNotes) {
+    return allNotes.filter((note) => {
+      return note.title.toLowerCase().match(search.toLowerCase());
+    });
+  }
 
   return (
     <>
@@ -36,12 +47,13 @@ export default function NoteList() {
             name="search"
             id="search"
             placeholder="Search"
-            // onChange={handleTextChange}
+            onChange={handleTextChange}
           />
         </form>
       </div>
       <div className="noteList">
-        {allNotes.map((note) => (
+        {/* Map through each filtered note */}
+        {filteredNotes.map((note) => (
           <Note key={note.id} note={note} />
         ))}
       </div>
