@@ -2,18 +2,30 @@ import './NoteList.scss';
 import Note from '../note/Note';
 import { useEffect, useState } from 'react';
 
-export default function NoteList({ handleTextChange }) {
+export default function NoteList() {
+
   const [allNotes, setAllNotes] = useState([]);
 
   useEffect(() => {
-    fetch('https://my-json-server.typicode.com/RazEfron/demo/notes')
+    fetch('https://my-json-server.typicode.com/runquan-ray-zhou/demo/notes')
       .then((response) => response.json())
       .then((response) => {
         setAllNotes(response);
       });
   }, []);
-
-  console.log(allNotes);
+  
+//   function handleTextChange(event) {
+//     const title = event.target.value;
+//     const result = title.length ? filterNotes(title, notes) : notes;
+//     setSearchTitle(title);
+//     setFilteredNotes(result);
+//   }
+  
+//   function filterNotes(search, notes) {
+//     return notes.filter((note) => {
+//       return note.title.toLowerCase().match(search.toLowerCase());
+//     });
+//   }
 
   return (
     <>
@@ -24,7 +36,7 @@ export default function NoteList({ handleTextChange }) {
             name="search"
             id="search"
             placeholder="Search"
-            onChange={handleTextChange}
+            // onChange={handleTextChange}
           />
         </form>
       </div>
