@@ -7,7 +7,7 @@ export default function NoteList() {
   const [allNotes, setAllNotes] = useState([]);
 
   useEffect(() => {
-    fetch('https://my-json-server.typicode.com/runquan-ray-zhou/demo/notes')
+    fetch('https://6637c889288fedf69381538c.mockapi.io/api/v1/notes')
       .then((response) => response.json())
       .then((response) => {
         setAllNotes(response);
