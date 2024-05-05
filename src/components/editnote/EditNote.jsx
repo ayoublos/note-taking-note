@@ -16,7 +16,15 @@ export default function EditNote ({ notes, setNotes, setFilteredNotes }) {
         setUpdateNote({...updateNote,[e.target.id]: e.target.value})
     }
 
-    console.log(currentNote)
+    function updateSingleNote(e) {
+        e.preventDefault()
+        const index = notes.findIndex(note => note.id === updateNote.id)
+        const newNotes = [...notes]
+        newNotes.splice(index, 1, updateNote)
+        setFilteredNotes(newNotes)
+        setNotes(newNotes)
+        navigate("/")
+    }
 
     function deleteNote() {
         const index = notes.findIndex(note => note.id === updateNote.id)
@@ -27,7 +35,6 @@ export default function EditNote ({ notes, setNotes, setFilteredNotes }) {
         navigate("/")
       }
         
-
     return(
         <div className="note">
             <div className="note__container">
@@ -63,19 +70,19 @@ export default function EditNote ({ notes, setNotes, setFilteredNotes }) {
                             </h3>
                     </label>
                     <ul>{currentNote.tags.map((tag,i) => <li key={i}>{tag}</li>)}</ul>
-                    <label htmlFor="body">
+                    <label htmlFor="content">
                         <p>
                             <textarea
                             onChange={handleTextChange} 
                             className="note__body" 
-                            id="body" 
+                            id="content" 
                             style={{width: "100%"}} 
                             value={updateNote.content}>
                             </textarea>
                         </p>
                     </label>
                     <div className="update-delete__button">
-                        <button type="submit">Update This Note</button>
+                        <button type="submit" onClick={updateSingleNote}>Update This Note</button>
                         <button onClick={deleteNote}>Delete This Note</button>
                     </div>
                 </form>
