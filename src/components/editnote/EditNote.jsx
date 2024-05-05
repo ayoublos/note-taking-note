@@ -89,11 +89,13 @@ export default function EditNote() {
               ></textarea>
             </p>
           </label>
-          <div className="update-delete__button">
+          <div className="update__button">
             <button type="submit">Update This Note</button>
-            <button onClick={() => destroyNote(id)}>Delete This Note</button>
           </div>
         </form>
+        <div className="delete__button">
+            <button onClick={() => destroyNote(id)}>Delete This Note</button>
+        </div>
       </div>
     </div>
   );

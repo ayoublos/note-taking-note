@@ -38,8 +38,12 @@
         cursor: pointer;
         border-radius: 10px;
     }
-    .update-delete__button {
+    .update__button {
         display: flex;
-        justify-content: space-evenly;
+    }
+    .delete__button {
+        margin-top: -75px;
+        display: flex;
+        justify-content: end;
     }
 }
