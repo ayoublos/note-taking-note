@@ -9,6 +9,7 @@ import Footer from "./components/footer/Footer.jsx";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import data from './data/data.json'
+import EditNote from "./components/editnote/EditNote.jsx";
 
 function App() {
 const [notes, setNotes] = useState(data);

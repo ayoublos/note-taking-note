@@ -11,7 +11,7 @@ export default function NoteList({ handleTextChange }) {
       .then((response) => {
         setAllNotes(response);
       });
-  }, []);
+  }, [allNotes.length]);
 
   console.log(allNotes);
 

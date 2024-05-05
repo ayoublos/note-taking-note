@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NewNoteForm.scss";
 
+
 export default function NewNoteForm() {
+  let BASE_URL=`https://my-json-server.typicode.com/RazEfron/demo/notes`
   let navigate = useNavigate();
   const [newNote, setNewNote] = useState({
     title: "",
@@ -12,22 +14,25 @@ export default function NewNoteForm() {
   function textChangeHandler(event) {
     setNewNote({ ...newNote, [event.target.id]: event.target.value });
   }
-  // function createNote(note) {
-  //   const options = {
-  //     method: "POST",
-  //     body: JSON.stringify(note),
-  //     headers: { "Content-Type": "application/json" },
-  //   };
-  //   return fetch(`${URL}/notes/`, options).then((response) => {
-  //     return response.json();
-  //   });
-  // }
+  function createNote(note) {
+    const options = {
+      method: "POST",
+      body: JSON.stringify(note),
+      headers: { "Content-Type": "application/json" },
+    };
+    return fetch(`${BASE_URL}`, options).then((response) => {
+      return response.json();
+    });
+  }
 
-  // function submitHandle(e) {
-  //   e.preventDefault();
-  //   setNewNote({ title: "", body: ``, category: `` });
-  //   createNote(newNote)
-  // }
+  function submitHandle(e) {
+    e.preventDefault();
+    createNote(newNote)
+    setNewNote({ title: "", body: ``, category: `` });
+
+    navigate(`/`)
+    console.log(newNote)
+  }
  
   return (
     <>
