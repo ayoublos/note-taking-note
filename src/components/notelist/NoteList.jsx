@@ -12,7 +12,7 @@ export default function NoteList() {
       .then((response) => {
         setAllNotes(response);
       });
-  }, []);
+  }, [allNotes.length]);
   
 //   function handleTextChange(event) {
 //     const title = event.target.value;
