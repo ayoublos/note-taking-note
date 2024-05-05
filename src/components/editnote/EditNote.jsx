@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditNote.scss"
 
 export default function EditNote ({ notes, setNotes, setFilteredNotes }) {
+
+    useEffect(() => {
+        fetch("")
+        .then(console.log)
+
+    }, [])
 
     let navigate = useNavigate()
     

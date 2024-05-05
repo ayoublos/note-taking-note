@@ -1,6 +1,5 @@
 import './NoteList.scss';
 import Note from '../note/Note';
-import { useState } from 'react';
 export default function NoteList({ handleTextChange, filteredNotes }) {
 
   return (
