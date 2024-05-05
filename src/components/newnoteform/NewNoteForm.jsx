@@ -4,7 +4,7 @@ import "./NewNoteForm.scss";
 
 
 export default function NewNoteForm() {
-  let BASE_URL=`https://my-json-server.typicode.com/RazEfron/demo/notes`
+  let BASE_URL='https://my-json-server.typicode.com/runquan-ray-zhou/demo/notes'
   let navigate = useNavigate();
   const [newNote, setNewNote] = useState({
     title: "",
