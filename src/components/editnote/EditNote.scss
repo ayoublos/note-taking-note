@@ -16,4 +16,16 @@
         justify-content: space-evenly;
         list-style: none;
     }
+    button {
+        font-size: 1.5em;
+        border: none;
+        padding: 15px;
+        margin-top: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+    .deleteButton {
+        display: flex;
+        justify-content: end;
+    }
 }

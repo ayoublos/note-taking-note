@@ -13,7 +13,7 @@ import data from './data/data.json'
 
 function App() {
 const [notes, setNotes] = useState(data);
-const [filteredNotes, setFilteredNotes] = useState(data);
+const [filteredNotes, setFilteredNotes] = useState(notes);
 const [searchTitle, setSearchTitle] = useState('');
 
 function handleTextChange(event) {
@@ -35,8 +35,8 @@ function filterNotes(search, notes) {
         <Header />
         <Routes>
           <Route path="/" element={<NoteList handleTextChange={handleTextChange} filteredNotes={filteredNotes} />} />
-          <Route path="/notes" element={<NoteList data={data} />} />
-          <Route path="/notes/:id/edit" element={<EditNote data={data}/>} />
+          <Route path="/notes" element={<NoteList handleTextChange={handleTextChange} filteredNotes={filteredNotes} />} />
+          <Route path="/notes/:id/edit" element={<EditNote notes={notes} setNotes={setNotes} setFilteredNotes={setFilteredNotes}/>} />
           <Route path="/notes/new" element={<NewNoteForm />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/*" element={<PageNotFound />} />
