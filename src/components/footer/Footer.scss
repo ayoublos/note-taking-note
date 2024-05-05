@@ -1,4 +1,12 @@
 .Footer {
+  position: absolute;
+  bottom: 0;
+  padding: 20px 30px;
+  left: 0;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+
   ul {
     list-style: none;
     display: flex;
