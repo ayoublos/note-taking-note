@@ -1,7 +1,7 @@
 //import { useState } from "react";
 import "./AboutUs.scss"
 
-export default function aboutUs() {
+export default function AboutUs() {
 
     return (
     
@@ -9,7 +9,7 @@ export default function aboutUs() {
             <h1>About Us </h1>
             <p>Some information about who we are.</p>
             <p>10.6 Pursuit Fellows</p>
-        </div><h2 style="text-align:center">Our Team</h2><div className="row" /><div className="column">
+        </div><h2>Our Team</h2><div className="row" /><div className="column">
                 <div className="card">
                     <div className="container">
                         <h2>Ayyoub Belibel</h2>
