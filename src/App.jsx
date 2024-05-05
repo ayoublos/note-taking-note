@@ -2,13 +2,14 @@ import { useState } from "react";
 import Header from "./components/header/Header.jsx";
 import NoteList from "./components/notelist/NoteList.jsx";
 import Note from "./components/note/Note.jsx";
-import EditNote from "./components/editnote/EditNote.jsx";
 import AboutUs from "./components/about us/AboutUs.jsx";
 import PageNotFound from "./components/pagenotfound/PageNotFound.jsx";
 import NewNoteForm from "./components/newnoteform/NewNoteForm.jsx";
 import Footer from "./components/footer/Footer.jsx";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import data from './data/data.json'
+import EditNote from "./components/editnote/EditNote.jsx";
 
 function App() {
 
