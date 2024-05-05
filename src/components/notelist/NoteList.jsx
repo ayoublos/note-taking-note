@@ -1,6 +1,19 @@
 import './NoteList.scss';
 import Note from '../note/Note';
-export default function NoteList({ handleTextChange, filteredNotes }) {
+import { useEffect, useState } from 'react';
+
+export default function NoteList({ handleTextChange }) {
+  const [allNotes, setAllNotes] = useState([]);
+
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/RazEfron/demo/notes')
+      .then((response) => response.json())
+      .then((response) => {
+        setAllNotes(response);
+      });
+  }, []);
+
+  console.log(allNotes);
 
   return (
     <>
@@ -16,7 +29,7 @@ export default function NoteList({ handleTextChange, filteredNotes }) {
         </form>
       </div>
       <div className="noteList">
-        {filteredNotes.map((note) => (
+        {allNotes.map((note) => (
           <Note key={note.id} note={note} />
         ))}
       </div>

@@ -28,15 +28,42 @@ function filterNotes(search, notes) {
     return note.title.toLowerCase().match(search.toLowerCase());
   });
 }
-  
+
   return (
     <main>
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<NoteList handleTextChange={handleTextChange} filteredNotes={filteredNotes} />} />
-          <Route path="/notes" element={<NoteList handleTextChange={handleTextChange} filteredNotes={filteredNotes} />} />
-          <Route path="/notes/:id/edit" element={<EditNote notes={notes} setNotes={setNotes} setFilteredNotes={setFilteredNotes}/>} />
+          <Route
+            path="/"
+            element={
+              <NoteList
+                handleTextChange={handleTextChange}
+                filteredNotes={filteredNotes}
+              />
+            }
+          />
+          <Route
+            path="/notes"
+            element={
+              <NoteList
+                handleTextChange={handleTextChange}
+                filteredNotes={filteredNotes}
+                setFilteredNotes={setFilteredNotes}
+                notes={notes}
+              />
+            }
+          />
+          <Route
+            path="/notes/:id/edit"
+            element={
+              <EditNote
+                notes={notes}
+                setNotes={setNotes}
+                setFilteredNotes={setFilteredNotes}
+              />
+            }
+          />
           <Route path="/notes/new" element={<NewNoteForm />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/*" element={<PageNotFound />} />
