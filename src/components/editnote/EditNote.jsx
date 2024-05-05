@@ -38,7 +38,7 @@ export default function EditNote ({ notes, setNotes, setFilteredNotes }) {
     return(
         <div className="note">
             <div className="note__container">
-                <form  onSubmit={updateSingleNote}>
+                <form onSubmit={updateSingleNote}>
                     <label htmlFor="title">
                         <h1>
                             <input
