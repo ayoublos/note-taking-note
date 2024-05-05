@@ -76,7 +76,8 @@ export default function EditNote ({ notes, setNotes, setFilteredNotes }) {
                             onChange={handleTextChange} 
                             className="note__body" 
                             id="content" 
-                            style={{width: "100%"}} 
+                            style={{width: "100%"}}
+                            rows="25" 
                             value={updateNote.content}>
                             </textarea>
                         </p>
