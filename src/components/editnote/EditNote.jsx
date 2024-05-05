@@ -5,7 +5,7 @@ import "./EditNote.scss"
 export default function EditNote () {
 
     let navigate = useNavigate()
-    
+
     const { id } = useParams()
 
     const [allNotes, setAllNotes] = useState([]);
@@ -19,7 +19,7 @@ export default function EditNote () {
     }, []);
 
     // const currentNote = allNotes.filter(note => note.id === id)[0]
-    
+
     // const [updateNote, setUpdateNote] = useState(currentNote)
 
     // function handleTextChange(e) {
@@ -44,7 +44,7 @@ export default function EditNote () {
     //     setNotes(newNotes)
     //     navigate("/")
     //   }
-        
+
     return(
         <div className="note">
             <div className="note__container">
@@ -53,9 +53,9 @@ export default function EditNote () {
                         <h1>
                             <input
                             // onChange={handleTextChange}
-                            className="note__title" 
-                            id="title" 
-                            type="text" 
+                            className="note__title"
+                            id="title"
+                            type="text"
                             value={allNotes.title}/>
                         </h1>
                     </label>
@@ -63,20 +63,20 @@ export default function EditNote () {
                         <h3>
                             <input
                             // onChange={handleTextChange}
-                            className="note__category" 
-                            id="category" 
-                            type="text" 
+                            className="note__category"
+                            id="category"
+                            type="text"
                             value={allNotes.category}/>
                             </h3>
                     </label>
                     <label htmlFor="content">
                         <p>
                             <textarea
-                            // onChange={handleTextChange} 
-                            className="note__body" 
-                            id="content" 
+                            // onChange={handleTextChange}
+                            className="note__body"
+                            id="content"
                             style={{width: "100%"}}
-                            rows="25" 
+                            rows="25"
                             value={allNotes.body}>
                             </textarea>
                         </p>
