@@ -8,47 +8,42 @@ export default function EditNote () {
     
     const { id } = useParams()
 
-    const [allNotes, setAllNotes] = useState([]);
+    const [currentNote, setCurrentNote] = useState({
+        title: "",
+        body: "",
+        category: "",
+      });
 
     useEffect(() => {
       fetch('https://6637c889288fedf69381538c.mockapi.io/api/v1/notes' + "/" + id)
         .then((response) => response.json())
         .then((response) => {
-          setAllNotes(response);
+          setCurrentNote(response);
         });
     }, []);
 
-    // const currentNote = allNotes.filter(note => note.id === id)[0]
-    
-    // const [updateNote, setUpdateNote] = useState(currentNote)
-
     function handleTextChange(e) {
-        setAllNotes({...allNotes,[e.target.id]: e.target.value})
+        setCurrentNote({...currentNote,[e.target.id]: e.target.value})
     }
 
-    // function updateSingleNote(e) {
-    //     e.preventDefault()
-    //     const index = notes.findIndex(note => note.id === updateNote.id)
-    //     const newNotes = [...notes]
-    //     newNotes.splice(index, 1, updateNote)
-    //     setFilteredNotes(newNotes)
-    //     setNotes(newNotes)
-    //     navigate("/")
-    // }
-
-    // function deleteNote() {
-    //     const index = allNotes.findIndex(note => note.id === updateNote.id)
-    //     const newNotes = [...notes]
-    //     newNotes.splice(index, 1)
-    //     setFilteredNotes(newNotes)
-    //     setNotes(newNotes)
-    //     navigate("/")
-    //   }
+    function updateSingleNote(e, ) {
+        e.preventDefault()
+        const options = {
+            method: "PUT",
+            body: JSON.stringify(currentNote),
+            headers: { "Content-Type": "application/json" },
+          };
+          return fetch(`https://6637c889288fedf69381538c.mockapi.io/api/v1/notes/${id}`, options).then((response) => {
+            return response.json();
+          }) .then(() => {
+            navigate("/");
+          })
+    }
         
     return(
         <div className="note">
             <div className="note__container">
-                <form>
+                <form onSubmit={updateSingleNote}>
                     <label htmlFor="title">
                         <h1>
                             <input
@@ -56,7 +51,7 @@ export default function EditNote () {
                             className="note__title" 
                             id="title" 
                             type="text" 
-                            value={allNotes.title}/>
+                            value={currentNote.title}/>
                         </h1>
                     </label>
                     <label htmlFor="category">
@@ -66,7 +61,7 @@ export default function EditNote () {
                             className="note__category" 
                             id="category" 
                             type="text" 
-                            value={allNotes.category}/>
+                            value={currentNote.category}/>
                             </h3>
                     </label>
                     <label htmlFor="content">
@@ -77,13 +72,13 @@ export default function EditNote () {
                             id="body" 
                             style={{width: "100%"}}
                             rows="25" 
-                            value={allNotes.body}>
+                            value={currentNote.body}>
                             </textarea>
                         </p>
                     </label>
                     <div className="update-delete__button">
                         <button type="submit">Update This Note</button>
-                        <button> Delete This Note</button>
+                        <button>Delete This Note</button>
                     </div>
                 </form>
             </div>
