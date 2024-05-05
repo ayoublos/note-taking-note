@@ -4,7 +4,7 @@ import "./AboutUs.scss"
 export default function AboutUs() {
 
     return (
-    
+
        <><div className="aboutus">
             <h1>About Us </h1>
             <p>Some information about who we are.</p>
