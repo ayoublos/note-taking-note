@@ -13,13 +13,14 @@ export default function NoteList() {
       .then((response) => response.json())
       .then((response) => {
         setAllNotes(response);
-      });
+      })
+      .catch(error => console.error(error));
   }, []);
 
   // Set filteredNotes to update as allNotes updates
   useEffect(() => {
     setFilteredNotes(allNotes);
-  }, [allNotes]);
+  }, [allNotes.length]);
 
   // Handle text change on user search bar
   function handleTextChange(event) {
