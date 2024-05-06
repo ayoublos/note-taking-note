@@ -11,12 +11,10 @@
     }
     .note__date,
     .note__category {
-        font-size: 1em;
         border: none;
     }
     .note__body {
         margin-top: 20px;
-        font-size: 1.2em;
         border: none;
     }
     input {
@@ -31,7 +29,6 @@
         list-style: none;
     }
     button {
-        font-size: 1.5em;
         border: none;
         padding: 15px;
         margin-top: 15px;
@@ -44,7 +41,7 @@
     .delete__button {
         margin-top: -65px;
         display: flex;
-        justify-content: end;
+       justify-content: flex-end;
     }
     .delete__button-options,
     .update__button-options {
@@ -53,7 +50,6 @@
     .delete__button-warning,
     .update__button-warning {
         color: red;
-        font-size: 1.5em;
         display: flex;
         justify-content: center;
     }
