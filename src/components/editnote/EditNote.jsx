@@ -7,6 +7,10 @@ export default function EditNote() {
 
   const { id } = useParams();
 
+  const [confirmDelete, setConfirmDelete] = useState(false)
+
+  const [confirmUpdate, setConfirmUpdate] = useState(false)
+
   const [currentNote, setCurrentNote] = useState({
     title: "",
     body: "",
@@ -90,11 +94,27 @@ export default function EditNote() {
             </p>
           </label>
           <div className="update__button">
-            <button type="submit">Update This Note</button>
+          {confirmUpdate ? 
+            <div>
+            <span className="update__button-warning">Are you sure?</span>
+            <div>
+              <button type="submit" className="update__button-options">Yes, Update</button> 
+              <button className="update__button-options" onClick={() => setConfirmUpdate(false)}>No, Nevermind</button>
+            </div>
+            </div>
+            : <button type="submit" onClick={() => setConfirmUpdate(true)}>Update This Note</button>}
           </div>
         </form>
         <div className="delete__button">
-            <button onClick={() => destroyNote(id)}>Delete This Note</button>
+            {confirmDelete ? 
+            <div>
+            <span className="delete__button-warning">Are you sure?</span>
+            <div>
+              <button className="delete__button-options" onClick={() => destroyNote(id)}>Yes, Delete</button> 
+              <button className="delete__button-options" onClick={() => setConfirmDelete(false)}>No, Nevermind</button>
+            </div>
+            </div>
+            : <button onClick={() => setConfirmDelete(true)}>Delete This Note</button>}
         </div>
       </div>
     </div>
