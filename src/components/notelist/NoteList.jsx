@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 export default function NoteList() {
   const [allNotes, setAllNotes] = useState([]);
   const [filteredNotes, setFilteredNotes] = useState([]);
-  const [searchTitle, setSearchTitle] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Use useEffect to fetch data from a server and update allNotes
   useEffect(() => {
@@ -21,20 +21,22 @@ export default function NoteList() {
     setFilteredNotes(allNotes);
   }, [allNotes]);
 
-
   // Handle text change on user search bar
   function handleTextChange(event) {
-    const title = event.target.value;
-    setSearchTitle(title);
+    const search = event.target.value;
+    setSearchQuery(search);
     // If search is not empty, filter notes by title. Else, return all notes.
-    const result = title.length ? filterNotes(title, allNotes) : allNotes;
+    const result = search.length ? filterNotes(search, allNotes) : allNotes;
     setFilteredNotes(result);
   }
 
   // Filter each note by title
   function filterNotes(search, allNotes) {
     return allNotes.filter((note) => {
-      return note.title.toLowerCase().match(search.toLowerCase());
+      return (
+        note.title.toLowerCase().match(search.toLowerCase()) ||
+        note.body.toLowerCase().match(search.toLowerCase())
+      );
     });
   }
 
