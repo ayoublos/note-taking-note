@@ -1,9 +1,11 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color:rgb(245, 243, 233) ;
+    background-color: #F5F3E9;
+    ;
     //background-image: linear-gradient blue yellow;
   }
+
 
   html {
     box-sizing: border-box;
@@ -20,28 +22,30 @@ body {
     padding: 0 10px;
   }
 
-  .img {
-    width: 10px;
+ 
 
-  }
   
   .card {
-    box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.943);
-    margin: 8px;
-    font-size: 30px;
-    background-color: rgb(56, 142, 139);
+    //box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.943);
+    margin: bottom;
+    font-size: 20px;
+   //background-color: rgb(173, 193, 192);
+    grid-row: 0px;
+    display: flex ;
+    justify-content: space space-evenly;
+    padding-left: 210px;
   }
   
   .aboutus {
-    padding: 50px;
-    font-size: 50px;
+    padding: 20px;
+    font-size: 35px;
     text-align: center;
-    background-color: #c7658788;
+    background-color: #2A9D8F;
     color: rgb(0, 0, 0);
   }
   
   .container {
-    padding: 0 50px;
+    //padding: 0 50px;
   }
 
   
@@ -52,4 +56,33 @@ body {
     font-size: 40px ;
   }
   
+  .title {
+    color: rgb(173, 19, 96);
+  }
   
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+
+.footer {
+    position: botttom;
+}
