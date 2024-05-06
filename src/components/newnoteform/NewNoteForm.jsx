@@ -33,7 +33,7 @@ export default function NewNoteForm() {
     navigate(`/`)
     console.log(newNote)
   }
- 
+
   return (
     <>
       <form onSubmit={submitHandle}>
@@ -77,15 +77,17 @@ export default function NewNoteForm() {
           />
         </label>
         <br />
-        <button
-          onClick={() => {
-            navigate(`/`);
-          }}
-          type="text"
-        >
-          Cancel
-        </button>
-        <button type="submit">Submit</button>
+        <div className="gap">
+          <button
+            onClick={() => {
+              navigate(`/`);
+            }}
+            type="text"
+          >
+            Cancel
+          </button>
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </>
   );
