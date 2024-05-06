@@ -22,7 +22,7 @@ export default function NewNoteForm() {
     };
     return fetch(`${BASE_URL}`, options).then((response) => {
       return response.json();
-    });
+    }).then(()=>{navigate(`/`)}).catch(error=>console.error(error));
   }
 
   function submitHandle(e) {
@@ -30,10 +30,10 @@ export default function NewNoteForm() {
     createNote(newNote)
     setNewNote({ title: "", body: ``, category: `` });
 
-    navigate(`/`)
+    
     console.log(newNote)
   }
- 
+
   return (
     <>
       <form onSubmit={submitHandle}>
@@ -77,15 +77,17 @@ export default function NewNoteForm() {
           />
         </label>
         <br />
-        <button
-          onClick={() => {
-            navigate(`/`);
-          }}
-          type="text"
-        >
-          Cancel
-        </button>
-        <button type="submit">Submit</button>
+        <div className="gap">
+          <button
+            onClick={() => {
+              navigate(`/`);
+            }}
+            type="text"
+          >
+            Cancel
+          </button>
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </>
   );
