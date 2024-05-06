@@ -38,8 +38,23 @@
         cursor: pointer;
         border-radius: 10px;
     }
-    .update-delete__button {
+    .update__button {
         display: flex;
-        justify-content: space-evenly;
+    }
+    .delete__button {
+        margin-top: -65px;
+        display: flex;
+        justify-content: end;
+    }
+    .delete__button-options,
+    .update__button-options {
+        margin-left: 20px;
+    }
+    .delete__button-warning,
+    .update__button-warning {
+        color: red;
+        font-size: 1.5em;
+        display: flex;
+        justify-content: center;
     }
 }
