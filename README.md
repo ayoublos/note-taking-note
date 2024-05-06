@@ -13,7 +13,7 @@ MyNotes is a simple note-taking application built with Vite and React. It allows
 
 1. **Create a New Note**:
    - Click on the "New Note" button.
-   - Enter a title, category, and content for your note.
+   - Enter a title, category, and content 
    - Click the "Submit" button to save the note.
 
 2. **Update a Note**:
