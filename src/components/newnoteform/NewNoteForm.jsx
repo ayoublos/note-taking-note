@@ -22,7 +22,7 @@ export default function NewNoteForm() {
     };
     return fetch(`${BASE_URL}`, options).then((response) => {
       return response.json();
-    });
+    }).catch(error=>console.error(error));
   }
 
   function submitHandle(e) {
