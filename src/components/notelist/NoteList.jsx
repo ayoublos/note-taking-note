@@ -12,14 +12,14 @@ export default function NoteList() {
     fetch('https://6637c889288fedf69381538c.mockapi.io/api/v1/notes')
       .then((response) => response.json())
       .then((response) => {
-        setAllNotes(response);
+        setAllNotes([...response]);
       })
       .catch(error => console.error(error));
   }, []);
 
   // Set filteredNotes to update as allNotes updates
   useEffect(() => {
-    setFilteredNotes(allNotes);
+    setFilteredNotes([...allNotes]);
   }, [allNotes.length]);
 
   // Handle text change on user search bar
