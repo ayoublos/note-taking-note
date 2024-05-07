@@ -30,7 +30,7 @@ export default function NewNoteForm() {
     createNote(newNote)
     setNewNote({ title: "", body: ``, category: `` });
 
-    
+
     console.log(newNote)
   }
 
@@ -72,7 +72,6 @@ export default function NewNoteForm() {
             value={newNote.body}
             onChange={textChangeHandler}
             placeholder="Please input a content"></textarea>
-          
         </label>
         <br />
         <div className="gap">
