@@ -35,7 +35,7 @@ export default function NewNoteForm() {
   }
 
   return (
-    <>
+    <div>
       <form onSubmit={submitHandle}>
         <label htmlFor="">
           Title
@@ -67,14 +67,12 @@ export default function NewNoteForm() {
         <label htmlFor="">
           Content
           <br />
-          <input
-            className="content"
+          <textarea    className="content"
             id="body"
             value={newNote.body}
             onChange={textChangeHandler}
-            placeholder="Please input a content"
-            type="text"
-          />
+            placeholder="Please input a content"></textarea>
+          
         </label>
         <br />
         <div className="gap">
@@ -89,6 +87,6 @@ export default function NewNoteForm() {
           <button type="submit">Submit</button>
         </div>
       </form>
-    </>
+    </div>
   );
 }
